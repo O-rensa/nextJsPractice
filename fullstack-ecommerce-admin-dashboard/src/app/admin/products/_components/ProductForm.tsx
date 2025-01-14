@@ -7,6 +7,7 @@ import { formatCurrency } from "@/lib/formatter";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { addProduct } from "../../_actions/products";
+import { useFormStatus } from "react-dom";
 
 export function ProductForm() {
   const [error, action] = useActionState(addProduct, {});
@@ -56,5 +57,13 @@ export function ProductForm() {
       { error?.image && <div className="text-destructive">{error.image}</div> }
     </div>
 
-    <Button type="submit" onClick={e => setPriceInCents(0)}>Save</Button>
-  </form>); }
+    <SubmitButton />
+  </form>); 
+}
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button type="submit" disabled={pending}>{ pending ? "Saving..." : "Save" }</Button>
+  );
+}
