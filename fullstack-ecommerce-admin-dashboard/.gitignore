@@ -42,3 +42,5 @@ next-env.d.ts
 
 # custom
 pnpm-lock.yaml
+/products
+/public/products
