@@ -31,7 +31,7 @@ export function DeleteDropdownItem({
 }) {
   const [isPending, startTransition] = useTransition();
 
-  return (<DropdownMenuItem disabled={disabled || isPending} variant={"destructive"} onClick={() => {
+  return (<DropdownMenuItem disabled={disabled || isPending} onClick={() => {
       startTransition(async () => {
         deleteProduct(id);
       });

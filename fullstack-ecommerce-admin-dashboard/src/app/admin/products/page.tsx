@@ -101,9 +101,10 @@ async function ProductsTable() {
 											Edit
 										</Link>
 									</DropdownMenuItem>
-									<ActiveToggleDropdownItem id={p.id} isAvailableForPurchase={p.isAvailableForPurchase}/>								</DropdownMenuContent>
+									<ActiveToggleDropdownItem id={p.id} isAvailableForPurchase={p.isAvailableForPurchase}/>
 									<DropdownMenuSeparator />
 									<DeleteDropdownItem id={p.id} disabled={p._count.orders > 0}/>
+								</DropdownMenuContent>
 							</DropdownMenu>
 						</TableCell>
 					</TableRow>
